@@ -1,0 +1,10 @@
+# Use the official PostgreSQL image as the base image
+FROM postgres:latest
+
+# Set environment variables
+ENV POSTGRES_USER=postgres
+ENV POSTGRES_PASSWORD=252502
+ENV POSTGRES_DB=grocery-booking
+
+# Expose PostgreSQL port (assuming your PostgreSQL database listens on port 5432)
+EXPOSE 5432

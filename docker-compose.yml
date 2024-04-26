@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  nodejs:
+    build:
+      context: .
+      dockerfile: Dockerfile.node
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    links:
+      - postgres
+
+  postgres:
+    build:
+      context: .
+      dockerfile: Dockerfile.postgres
+    volumes:
+      - ./pg_hba.conf:/etc/postgresql/pg_hba.conf
+      - ./postgresql.conf:/etc/postgresql/postgresql.conf  
+    ports:
+      - "5432:5432"
